@@ -1,19 +1,32 @@
+/* =========================================================
+   GOOGLE FONT
+========================================================= */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
+
+
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
 :root {
-  --primary-color: #a069e7;
-  --primary-color-dark: #a069e7;
-  --secondary-color: #a069e7;
-  --text-dark: #1f2937;
-  --text-light: #6b7280;
-  --extra-light: #ffffff;
+  --primary-color: #ff3131;
+  --primary-color-dark: #ff3131;
+  --secondary-color: #ff3131;
+
+  --text-dark: #1e1e1e;  /* swapped */
+  --text-light: #1e1e1e; /* swapped */
+
+  --extra-light: #e5e5db; /* swapped */
   --max-width: 1200px;
-  /*#cc02ff*/
 }
 
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -22,25 +35,32 @@ a {
   text-decoration: none;
 }
 
+/* =========================================================
+   BODY
+========================================================= */
 body {
   font-family: "Poppins", sans-serif;
-  /*overflow: hidden;*/
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #e5e5db; /* swapped */
 }
 
-/* Media query for larger screens (e.g., laptops) */
-@media (min-width: 1200px) {
-  .section__container {
-    padding: 10rem 5rem; /* Adjust padding for laptop screens */
-  }
-}
-
-
+/* =========================================================
+   NAVBAR
+========================================================= */
 nav {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #ffffff;
+  background-color: #e5e5db; /* swapped */
   z-index: 99;
 }
 
@@ -48,6 +68,7 @@ nav {
   max-width: var(--max-width);
   margin: auto;
   padding: 1.5rem 1rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,23 +80,25 @@ nav .logo a {
   color: var(--primary-color);
   transition: 0.3s;
 }
+
 nav .logo a:hover {
   color: var(--primary-color-dark);
 }
 
+nav input,
 nav .checkbox {
   display: none;
 }
 
-nav input {
-  display: none;
-}
 nav .checkbox i {
   font-size: 2rem;
   color: var(--primary-color);
   cursor: pointer;
 }
 
+/* =========================================================
+   NAV LINKS
+========================================================= */
 ul {
   display: flex;
   align-items: center;
@@ -87,7 +110,6 @@ ul {
 ul li a {
   padding: 0.5rem 1rem;
   border: 2px solid transparent;
-  text-decoration: none;
   font-weight: 600;
   color: var(--text-dark);
   transition: 0.3s;
@@ -99,20 +121,29 @@ ul li a:hover {
   color: var(--secondary-color);
 }
 
+/* =========================================================
+   SECTION / HERO
+========================================================= */
 .section {
-  background-color: var(--extra-light);
+  min-height: calc(100vh - 85px);
+  padding-top: 85px;
+  background-color: #e5e5db; /* swapped */
 }
 
 .section__container {
-  min-height: 100vh;
+  min-height: 80vh;
   max-width: var(--max-width);
   margin: auto;
   padding: 1rem;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
 }
 
+/* =========================================================
+   CONTENT
+========================================================= */
 .content {
   display: flex;
   flex-direction: column;
@@ -121,8 +152,8 @@ ul li a:hover {
 
 .subtitle {
   letter-spacing: 2px;
-  color: var(--text-light);
   font-weight: 600;
+  color: var(--text-light);
   margin-bottom: 0.5rem;
 }
 
@@ -131,38 +162,24 @@ ul li a:hover {
   font-weight: 400;
   line-height: 3rem;
   color: var(--text-dark);
-  margin-bottom: "";
+  transition: font-size 0.3s ease;
 }
 
 .title span {
   font-weight: 600;
 }
 
-/* Mobile view adjustments */
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.5rem; /* Smaller font size for mobile */
-    line-height: 2.2rem; /* Adjusted line height to match */
-  }
-  .text.static-txt .text.dynamic-txt{
-    font-size: 1.5rem; /* Adjusted font size for dynamic text */
-  }
-
-}
-.title {
-  /* ... existing styles ... */
-  transition: font-size 0.3s ease;
-}
-
-/*---------------------------------------------------------*/
-
 .description {
   text-align: justify;
-  line-height: 1.5rem;
+  line-height: 1.2rem;
+  font-size: 0.75rem;
   color: var(--text-light);
   margin-bottom: 2rem;
 }
-/*---------------------------------------*/
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
 .action__btns {
   display: flex;
   gap: 1rem;
@@ -173,27 +190,26 @@ ul li a:hover {
   font-weight: 600;
   letter-spacing: 2px;
   padding: 1rem 2rem;
-  outline: none;
-  border: 3px solid var(--primary-color); /* Border uses primary color */
+
+  border: 3px solid var(--primary-color);
   border-radius: 5px;
-  position: relative;
-  background: var(--primary-color); /* Default background */
-  color: white; /* Default text color */
+  background: var(--primary-color);
+  color: white;
   cursor: pointer;
+
+  position: relative;
   transition: all 0.3s ease-in-out;
-  animation: blink-border 1s infinite alternate; /* Glowing border animation */
-  box-shadow: 0 0 10px var(--primary-color); /* Initial glow */
+  animation: blink-border 1s infinite alternate;
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
-/* Hover Effect */
 .action__btns button:hover {
-  background: white; /* Background turns white */
-  color: black; /* Text turns black */
-  border-color: black; /* Border turns black */
-  box-shadow: 0 0 15px black; /* Glow effect on hover */
+  background: #e5e5db; /* swapped */
+  color: #1e1e1e; /* swapped */
+  border-color: #1e1e1e; /* swapped */
+  box-shadow: 0 0 15px #1e1e1e; /* swapped */
 }
 
-/* Blinking Border Animation */
 @keyframes blink-border {
   0% {
     border-color: rgb(255, 255, 255);
@@ -205,11 +221,11 @@ ul li a:hover {
   }
 }
 
-
-/*--------------------------------------------------------------------*/
-
+/* =========================================================
+   BUTTON VARIANTS
+========================================================= */
 .hire__me {
-  background-color: white;
+  background-color: #1e1e1e;
 }
 
 .hire__me:hover {
@@ -218,134 +234,220 @@ ul li a:hover {
 }
 
 .portfolio {
-    background-color: var(--primary-color);
-    color: white;
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .portfolio:hover {
-  background-color:white;
-  color:black;
+  background-color: #e5e5db; /* swapped */
+  color: #1e1e1e; /* swapped */
 }
 
+/* =========================================================
+   IMAGE
+========================================================= */
 .image {
   display: grid;
   place-items: center;
 }
 
 .image img {
-  width: min(25rem, 90%);
+  width: min(25rem, 70%);
   border-radius: 100%;
+  transition: font-size 1s ease;
 }
-
 
 @media (min-width: 769px) {
   .image {
-    margin-left: 15%; /* Moves the image container right */
-    /* Alternative: transform: translateX(20%); */
+    margin-left: 15%;
   }
-  
-  /* OR if you want to move just the image, not the container */
+
   .image img {
     margin-left: 15%;
   }
 }
 
-.image img {
-  /* ... existing styles ... */
-  transition: font-size 1s ease;
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+.social-icons {
+  margin-top: 0%;
+  margin-bottom: 5%;
 }
 
-/*-----------------------------------------------------------*/
-
-.social-icons{
-    margin-top: 0%;
-    margin-bottom: 5%;
-}
-.social-icons a{
-    text-decoration: none;
-    font-size: 30px;
-    margin-right: 40px;
-    color:black;
-    display: inline-block;
-    transition: trasform 0.5s;
-    
-}
-.social-icons a:hover{
-    color:var(--primary-color);
-    transform: translateY(-5px);
+.social-icons a {
+  font-size: 30px;
+  margin-right: 40px;
+  color: #1e1e1e; /* swapped */
+  display: inline-block;
+  transition: transform 0.5s;
 }
 
-.container{
-width: auto;
-overflow: hidden;
+.social-icons a:hover {
+  color: var(--primary-color);
+  transform: translateY(-5px);
 }
 
-.container .text{
-    position: relative;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-.container .text.static-txt{
-    color: var(--text-dark);
-
-}
-.text.dynamic-txt:before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #ffffff;
-    border-left: 2px solid #a069e7;
-    animation: animate 4s steps(12) infinite;
+/* =========================================================
+   TYPING TEXT
+========================================================= */
+.container {
+  width: auto;
 }
 
-@keyframes animate{
-    40%, 60%{
-        left:  calc(100% + 4px);
-    }
-    100%{
-        left: 0%;
-    }
+.container .text {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
 }
-/* Scrollbar Styles */
+
+.container .text.static-txt {
+  color: var(--text-dark);
+}
+
+.text.dynamic-txt:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--extra-light);
+  border-left: 2px solid var(--primary-color);
+  animation: animate 4s steps(12) infinite;
+}
+
+@keyframes animate {
+  40%, 60% {
+    left: calc(100% + 4px);
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
 ::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(to bottom, #f5f5f5, #000000); /* Gradient background for the track */
+  background: linear-gradient(to bottom, #f5f5f5, #1e1e1e);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a069e7; /* Color of the scrollbar thumb */
-  border-radius: 5px; /* Rounded corners for the thumb */
+  background: #ff3131;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffe9d2; /* Color of the scrollbar thumb on hover */
+  background: #ffe9d2;
 }
-/*----------------------------------------------------------------*/
-@media (max-width: 768px) {
+
+/* =========================================================
+   LIQUID CURSOR
+========================================================= */
+.liquid-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  background: rgba(30, 30, 30, 0.1);
+  backdrop-filter: blur(2px);
+  /*filter: blur(8px);*/
+}
+
+/* =========================================================
+   INVERT THEME
+========================================================= */
+body.invert {
+  background-color: #1e1e1e; /* swapped */
+  color: #e5e5db; /* swapped */
+}
+
+body.invert nav,
+body.invert .section {
+  background-color: #1e1e1e; /* swapped */
+}
+
+body.invert .title,
+body.invert .subtitle,
+body.invert .description,
+body.invert ul li a,
+body.invert .container .text,
+body.invert .container .text.static-txt,
+body.invert .social-icons a {
+  color: #e5e5db;
+}
+
+body.invert .text.dynamic-txt:before {
+  background-color: #1e1e1e;
+}
+
+body.invert .liquid-cursor {
+  background: rgba(255, 255, 255, 0.1); /* dark cursor on light bg */
+  backdrop-filter: blur(2px);
+}
+
+
+/* =========================================================
+   TRANSITIONS
+========================================================= */
+body,
+nav,
+.section,
+.title,
+.subtitle,
+.description,
+.text.dynamic-txt:before {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================================
+   MEDIA QUERIES
+========================================================= */
+@media (min-width: 1200px) {
+  .section__container {
+    padding: 10rem 5rem;
+  }
+}
+
+@media (max-width: 1200px) {
   .container .text {
-    font-size: 1.5rem; /* Adjust font size for smaller screens */
-  }}
-  @media (max-width: 1200px) {
-    .container .text {
-      font-size: 1.6rem; /* Adjust font size for tablet screens */
-    }}
-    
-/*----------------------------------------------------------------*/
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+  }
+
+  .container .text {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .social-icons a {
+    font-size: 24px;
+    margin-right: 20px;
+  }
+}
 
 @media (width < 750px) {
   nav .checkbox {
     display: block;
-    
-  }
-  html {
-    scroll-behavior: smooth;
   }
 
   ul {
@@ -354,6 +456,7 @@ overflow: hidden;
     height: calc(100vh - 85px);
     left: -100%;
     top: 85px;
+
     background-color: var(--extra-light);
     flex-direction: column;
     justify-content: center;
@@ -369,42 +472,27 @@ overflow: hidden;
   }
 
   .section__container {
-    padding: 10rem 1rem 5rem 1rem;
+    padding: 10rem 1rem 5rem;
+    grid-template-columns: 1fr;
     text-align: center;
-    grid-template-columns: repeat(1, 1fr);
+  }
+
+ @media (max-width: 768px) {
+  .section__container {
+    padding: 3rem 1rem 5rem; /* reduced top padding from 10rem → 3rem */
   }
 
   .image {
-    grid-area: 1/1/2/2;
+    grid-area: 1 / 1 / 2 / 2;
+    display: block;
+    margin: 0 auto; /* centers horizontally */
+    max-width: 60%; /* keeps it responsive */
+    height: auto;
   }
+}
+
 
   .action__btns {
     margin: auto;
-  }
-
-  .social-icons a{
-    align-items: center;
-  }
-
-}
-/*--------------------------------------------*/
-@media (max-width: 768px) {
-    .social-icons a {
-        font-size: 24px; /* Smaller icon size */
-        margin-right: 20px; /* Reduced spacing between icons */
-    }
-}
-
-
-
-/*---------------------------------------------------*/
-.description {
-  font-size: 1rem; /* Default size */
-}
-
-@media only screen and (max-width: 768px) {
-  .description {
-    font-size: 1rem;      /* Smaller font size for mobile */
-      line-height: 1.3;     /* Tighter line spacing (adjust as needed) */
   }
 }
