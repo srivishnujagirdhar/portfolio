@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
     <link rel="stylesheet" href="style.css" />
     <title>Portfolio</title>
-    <script>
-      window.onload = function () {
-        document.body.style.zoom = "125%";
-      };
+
+<script>
+
+     
     </script>
 
   </head><script src="https://kit.fontawesome.com/16dc9b612e.js" crossorigin="anonymous"></script>
   <body>
     <nav>
       <div class="nav__content">
-        <div class="logo"><a href="#">SRIVSNU</a></div>
+        <div class="logo"><a href="#">☼</a></div>
         <label for="check" class="checkbox">
           <i class="ri-menu-line"></i>
         </label>
@@ -62,31 +62,63 @@
                 </script>
           
           <p class="description">
-            Welcome to my profile! I'm a Graphic Designer, UI/UX Designer, and Video Editor 
-            with a passion for crafting visually stunning, user-friendly interfaces and templates. 
-            With experience in diverse web projects—from blogs to e-commerce platforms, startups, 
-            and marketing companies—I bring a comprehensive skill set to each project.
+            Welcome to my profile. I’m a Graphic Designer with strong experience in digital marketing, branding, and UI/UX design,
+             creating visuals that are not just good-looking but purposeful. From social media creatives, ads, and packaging to websites,
+             presentations, and video content, I’ve worked across agencies and freelance projects,
+             collaborating with teams and clients to deliver high-quality, strategy-driven designs.
           </p>
           <div class="social-icons">
-            <a href="https://www.youtube.com/@srivsnu" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.instagram.com/srivsnu/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.github.com/SRIVSNU/" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/srivsnu" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@vishnuj.design" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/vishnuj.design/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/srivishnujagirdhar" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/vishnujagirdhar" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
           <div class="action__btns">
-            <a href="https://srivsnu.my.canva.site/srivsnuportfolio" target="_blank"><button class="portfolio">--Designer Portfolio--</button></a>
-           <!-- <a href="https://drive.google.com/file/d/1kugZgCS86zPT2UHPSmxzlzZU5CPEz0TP/view?usp=sharing"><button class="hire__me">Download Resume</button></a> -->
+            <a href="https://srivsnu.my.canva.site/portfolio" target="_blank"><button class="portfolio">   --Editor Portfolio--   </button></a>
+            <!--<a href="https://drive.google.com/file/d/1kugZgCS86zPT2UHPSmxzlzZU5CPEz0TP/view?usp=sharing"><button class="hire__me">Download Resume</button></a>-->  
             
           </div>
         </div>
         <div class="image">
-          <img src="profile1.png" alt="profile" />
+          <img src="Untitled-1.png" alt="profile" />
         </div>
       </div>
+
+      <script>
+  document.querySelector(".logo a").addEventListener("click", function (e) {
+    e.preventDefault(); // prevents page jump
+    document.body.classList.toggle("invert");
+  });
+</script>
+
+<div class="liquid-cursor"></div>
+
+<script>
+  const cursor = document.querySelector(".liquid-cursor");
+
+  let mouseX = 0, mouseY = 0;
+  let currentX = 0, currentY = 0;
+  const size = 40;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    currentX += (mouseX - currentX) * 0.12;
+    currentY += (mouseY - currentY) * 0.12;
+
+    cursor.style.transform = `translate3d(${currentX - size / 2}px, ${currentY - size / 2}px, 0)`;
+
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
     </section>
-
-
-
 
   </body>
 </html>
